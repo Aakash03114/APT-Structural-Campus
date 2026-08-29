@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}
+Registration Successful | APT Structural Campus
+{% endblock %}
+
+{% block content %}
+
+<section class="registration-success section-padding">
+
+    <div class="container text-center">
+
+        <div class="success-card"
+             data-aos="fade-up">
+
+            <div class="success-icon">
+
+                <i class="fa-solid fa-check"></i>
+
+            </div>
+
+            <span class="section-eyebrow">
+                REGISTRATION RECEIVED
+            </span>
+
+            <h1>
+                Thank You,
+                <span>{{ registration.full_name }}</span>
+            </h1>
+
+            <p>
+                Your registration request for
+                <strong>{{ registration.course }}</strong>
+                has been successfully received.
+            </p>
+
+            <p>
+                Our team will review your details and contact you
+                regarding the next steps.
+            </p>
+
+            <a href="{{ url_for('main.home') }}"
+               class="btn btn-luxury">
+
+                Back to Home
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

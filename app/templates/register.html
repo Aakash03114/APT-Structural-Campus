@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register | APT Structural Campus
+{% endblock %}
+
+{% block meta_description %}
+Register for professional structural detailing and estimation programs at APT Structural Campus.
+{% endblock %}
+
+{% block content %}
+
+<section class="registration-section section-padding">
+
+    <div class="container">
+
+        <div class="section-heading text-center"
+             data-aos="fade-up">
+
+            <span class="section-eyebrow">
+                START YOUR JOURNEY
+            </span>
+
+            <h1 class="section-title">
+                Register for
+                <span>Professional Training</span>
+            </h1>
+
+            <p class="section-description mx-auto">
+                Submit your details and our team will contact you
+                regarding course availability, training details
+                and enrollment.
+            </p>
+
+        </div>
+
+
+        <div class="registration-wrapper"
+             data-aos="fade-up">
+
+            <form method="POST"
+                  class="registration-form">
+
+                {{ form.hidden_tag() }}
+
+                <div class="row g-4">
+
+                    <div class="col-md-6">
+
+                        {{ form.full_name.label(class="form-label") }}
+
+                        {{ form.full_name(
+                            class="form-control",
+                            placeholder="Enter your full name"
+                        ) }}
+
+                        {% for error in form.full_name.errors %}
+                            <small class="text-danger">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        {{ form.email.label(class="form-label") }}
+
+                        {{ form.email(
+                            class="form-control",
+                            placeholder="Enter your email"
+                        ) }}
+
+                        {% for error in form.email.errors %}
+                            <small class="text-danger">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        {{ form.phone.label(class="form-label") }}
+
+                        {{ form.phone(
+                            class="form-control",
+                            placeholder="Enter your phone number"
+                        ) }}
+
+                        {% for error in form.phone.errors %}
+                            <small class="text-danger">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        {{ form.course.label(class="form-label") }}
+
+                        {{ form.course(
+                            class="form-select"
+                        ) }}
+
+                        {% for error in form.course.errors %}
+                            <small class="text-danger">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div class="col-12">
+
+                        {{ form.qualification.label(class="form-label") }}
+
+                        {{ form.qualification(
+                            class="form-control",
+                            placeholder="Example: B.Tech Civil Engineering"
+                        ) }}
+
+                    </div>
+
+
+                    <div class="col-12">
+
+                        {{ form.message.label(class="form-label") }}
+
+                        {{ form.message(
+                            class="form-control",
+                            rows="5",
+                            placeholder="Tell us anything you would like us to know..."
+                        ) }}
+
+                    </div>
+
+
+                    <div class="col-12 text-center">
+
+                        {{ form.submit(
+                            class="btn btn-luxury"
+                        ) }}
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

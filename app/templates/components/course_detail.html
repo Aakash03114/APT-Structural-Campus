@@ -1,0 +1,191 @@
+<!-- =========================================================
+     COURSE DETAIL
+     ========================================================= -->
+
+<section class="course-detail-section"
+         id="{{ course.id }}">
+
+    <div class="container">
+
+        <div class="course-detail-wrapper">
+
+
+            <!-- IMAGE SIDE -->
+
+            <div class="course-detail-visual"
+                 data-aos="fade-right">
+
+                <div class="course-detail-image">
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename=course.image
+                        ) }}"
+                        alt="{{ course.title }}"
+                        loading="lazy">
+
+                    <div class="course-detail-number">
+                        {{ course.number }}
+                    </div>
+
+                </div>
+
+
+                <div class="course-info-strip">
+
+                    <div>
+                        <span>Duration</span>
+                        <strong>{{ course.duration }}</strong>
+                    </div>
+
+                    <div>
+                        <span>Level</span>
+                        <strong>{{ course.level }}</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTENT SIDE -->
+
+            <div class="course-detail-information"
+                 data-aos="fade-left">
+
+                <span class="course-category">
+                    {{ course.category }}
+                </span>
+
+                <h2>
+                    {{ course.title }}
+                </h2>
+
+                <p class="course-detail-description">
+                    {{ course.description }}
+                </p>
+
+
+                <!-- Course Meta -->
+
+                <div class="course-meta">
+
+                    <div class="course-meta-item">
+
+                        <i class="fa-solid fa-chalkboard-user"></i>
+
+                        <div>
+                            <span>Training Mode</span>
+                            <strong>{{ course.mode }}</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="course-meta-item">
+
+                        <i class="fa-solid fa-laptop-code"></i>
+
+                        <div>
+                            <span>Software</span>
+                            <strong>{{ course.software }}</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Learning Outcomes -->
+
+                <div class="course-detail-block">
+
+                    <h3>
+                        Learning Outcomes
+                    </h3>
+
+                    <div class="outcomes-grid">
+
+                        {% for outcome in course.outcomes %}
+
+                        <div class="outcome-item">
+
+                            <i class="fa-solid fa-check"></i>
+
+                            <span>
+                                {{ outcome }}
+                            </span>
+
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+
+
+                <!-- Curriculum -->
+
+                <div class="course-detail-block">
+
+                    <h3>
+                        Curriculum
+                    </h3>
+
+                    <div class="curriculum-list">
+
+                        {% for item in course.curriculum %}
+
+                        <div class="curriculum-item">
+
+                            <span class="curriculum-index">
+                                {{ "%02d"|format(loop.index) }}
+                            </span>
+
+                            <span>
+                                {{ item }}
+                            </span>
+
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+
+
+                <!-- CTA -->
+
+                {% if course.id != "course-3d" %}
+
+                <a href="{{ url_for('main.contact') }}"
+                   class="btn-luxury course-register-btn">
+
+                    Register Interest
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+                {% else %}
+
+                <span class="course-coming-message">
+
+                    <i class="fa-solid fa-clock"></i>
+
+                    Registration opens soon
+
+                </span>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

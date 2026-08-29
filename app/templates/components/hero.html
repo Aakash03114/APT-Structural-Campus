@@ -1,0 +1,113 @@
+<!-- =========================================================
+     HERO SECTION
+     ========================================================= -->
+
+<section class="hero-section" id="home">
+
+    <div class="hero-background"></div>
+
+    <div class="container">
+
+        <div class="row align-items-center min-vh-100">
+
+            <!-- Hero Content -->
+            <div class="col-lg-7">
+
+                <div class="hero-content" data-aos="fade-up">
+
+                    <span class="hero-eyebrow">
+                        APT STRUCTURAL CAMPUS
+                    </span>
+
+                    <h1 class="hero-title">
+                        Build
+                        <span>Industry-Ready</span>
+                        Skills in Structural Detailing &amp; Estimation
+                    </h1>
+
+                    <p class="hero-description">
+                        APT Structural Campus is a professional training
+                        platform focused on practical skills in Rebar
+                        Detailing, Rebar Estimation and Concrete Estimation,
+                        preparing future-ready structural professionals.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="{{ url_for('main.register') }}"
+                           class="btn btn-luxury">
+
+                            Enroll Now
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                        <a href="{{ url_for('main.courses') }}"
+                           class="btn btn-outline-luxury">
+
+                            Explore Courses
+
+                            <i class="fa-solid fa-layer-group"></i>
+
+                        </a>
+
+                    </div>
+
+                    
+
+                </div>
+
+            </div>
+
+
+            <!-- Hero Visual -->
+            <div class="col-lg-5">
+
+                <div class="hero-visual" data-aos="fade-left">
+
+                    <div class="hero-image-wrapper">
+
+                        <img
+                           src="{{ url_for(
+                               'static',
+                               filename='images/hero/home-page-main.jpeg'
+                            ) }}"
+                            alt="Structural detailing and estimation training at APT Structural Campus"
+                            class="hero-image"
+                            loading="eager"
+                            fetchpriority="high"
+                            decoding="async"
+                       >
+
+                        <div class="hero-image-overlay"></div>
+
+                    </div>
+
+
+                   
+
+                    <!-- Decorative Element -->
+                    <div class="hero-gold-orbit"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Scroll Indicator -->
+    <div class="hero-scroll-indicator">
+
+        <span>
+            SCROLL TO EXPLORE
+        </span>
+
+        <i class="fa-solid fa-arrow-down"></i>
+
+    </div>
+
+</section>

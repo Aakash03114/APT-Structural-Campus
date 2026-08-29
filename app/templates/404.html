@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}
+Page Not Found | APT Structural Campus
+{% endblock %}
+
+{% block meta_description %}
+The page you're looking for could not be found on APT Structural Campus.
+{% endblock %}
+
+{% block content %}
+
+<section class="error-page">
+
+    <div class="error-grid"></div>
+
+    <div class="container">
+
+        <div class="error-content"
+             data-aos="fade-up">
+
+            <div class="error-code">
+                404
+            </div>
+
+            <span class="section-eyebrow">
+                PAGE NOT FOUND
+            </span>
+
+            <h1>
+                Looks Like This
+                <span>Drawing Is Missing.</span>
+            </h1>
+
+            <p>
+                The page you're looking for may have been moved,
+                renamed, or doesn't exist anymore.
+            </p>
+
+            <div class="error-actions">
+
+                <a href="{{ url_for('main.home') }}"
+                   class="btn-luxury">
+
+                    Back to Home
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+                <a href="{{ url_for('main.contact') }}"
+                   class="error-secondary-btn">
+
+                    Contact APT
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

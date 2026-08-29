@@ -1,0 +1,318 @@
+﻿{% extends "base.html" %}
+
+{% block title %}
+Request Employees | Employer Hiring Solutions | APT Structural Campus
+{% endblock %}
+
+{% block meta_description %}
+Request skilled structural detailing and estimation professionals. Submit your staffing requirements to APT Structural Campus for customized hiring solutions.
+{% endblock %}
+
+{% block content %}
+
+<section class="registration-section section-padding">
+
+    <div class="container">
+
+        <div class="section-heading text-center"
+             data-aos="fade-up">
+
+            <span class="section-eyebrow">
+                EMPLOYER HIRING SOLUTIONS
+            </span>
+
+            <h1 class="section-title">
+                Request <span>Employees</span>
+            </h1>
+
+            <p class="section-description mx-auto">
+                Connect with industry-ready, technically trained structural detailing
+                and estimation professionals. Submit your hiring requirements below
+                and our recruitment team will assist you with candidate sourcing and screening.
+            </p>
+
+        </div>
+
+
+        <div class="registration-wrapper"
+             data-aos="fade-up">
+
+            <form method="POST"
+                  class="registration-form"
+                  novalidate>
+
+                {{ form.hidden_tag() }}
+
+                <!-- Section 1: Company Information -->
+                <div class="form-section-title mb-4">
+                    <h4 class="fw-bold" style="color: #011428; font-family: 'Playfair Display', serif; font-size: 1.35rem; border-bottom: 2px solid rgba(1, 20, 40, 0.08); padding-bottom: 10px;">
+                        <i class="fa-solid fa-building me-2" style="color: #D8AE62;"></i>
+                        1. Company Information
+                    </h4>
+                </div>
+
+                <div class="row g-4 mb-5">
+
+                    <div class="col-md-6">
+
+                        {{ form.company_name.label(class="form-label") }}
+
+                        {{ form.company_name(
+                            class="form-control" + (" is-invalid" if form.company_name.errors else ""),
+                            placeholder="e.g. Apex Structural Consultants"
+                        ) }}
+
+                        {% for error in form.company_name.errors %}
+                            <small class="text-danger">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        {{ form.contact_person.label(class="form-label") }}
+
+                        {{ form.contact_person(
+                            class="form-control" + (" is-invalid" if form.contact_person.errors else ""),
+                            placeholder="e.g. John Doe (HR Manager / Lead Engineer)"
+                        ) }}
+
+                        {% for error in form.contact_person.errors %}
+                            <small class="text-danger">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        {{ form.email.label(class="form-label") }}
+
+                        {{ form.email(
+                            class="form-control" + (" is-invalid" if form.email.errors else ""),
+                            placeholder="e.g. hr@company.com"
+                        ) }}
+
+                        {% for error in form.email.errors %}
+                            <small class="text-danger">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        {{ form.phone.label(class="form-label") }}
+
+                        {{ form.phone(
+                            class="form-control" + (" is-invalid" if form.phone.errors else ""),
+                            placeholder="e.g. +91 98765 43210"
+                        ) }}
+
+                        {% for error in form.phone.errors %}
+                            <small class="text-danger">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        {{ form.location.label(class="form-label") }}
+
+                        {{ form.location(
+                            class="form-control" + (" is-invalid" if form.location.errors else ""),
+                            placeholder="e.g. Bangalore, India / Remote"
+                        ) }}
+
+                        {% for error in form.location.errors %}
+                            <small class="text-danger">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+
+
+                <!-- Section 2: Hiring Requirements -->
+                <div class="form-section-title mb-4">
+                    <h4 class="fw-bold" style="color: #011428; font-family: 'Playfair Display', serif; font-size: 1.35rem; border-bottom: 2px solid rgba(1, 20, 40, 0.08); padding-bottom: 10px;">
+                        <i class="fa-solid fa-user-check me-2" style="color: #D8AE62;"></i>
+                        2. Hiring Requirements
+                    </h4>
+                </div>
+
+                <div class="row g-4 mb-5">
+
+                    <div class="col-md-6">
+
+                        {{ form.position.label(class="form-label") }}
+
+                        {{ form.position(
+                            class="form-control" + (" is-invalid" if form.position.errors else ""),
+                            placeholder="e.g. 2D Rebar Detailer / Estimation Engineer"
+                        ) }}
+
+                        {% for error in form.position.errors %}
+                            <small class="text-danger">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div class="col-md-3">
+
+                        {{ form.employees_required.label(class="form-label") }}
+
+                        {{ form.employees_required(
+                            class="form-control" + (" is-invalid" if form.employees_required.errors else ""),
+                            placeholder="e.g. 2",
+                            type="number",
+                            min="1"
+                        ) }}
+
+                        {% for error in form.employees_required.errors %}
+                            <small class="text-danger">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div class="col-md-3">
+
+                        {{ form.employment_type.label(class="form-label") }}
+
+                        {{ form.employment_type(
+                            class="form-select" + (" is-invalid" if form.employment_type.errors else "")
+                        ) }}
+
+                        {% for error in form.employment_type.errors %}
+                            <small class="text-danger">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        {{ form.experience.label(class="form-label") }}
+
+                        {{ form.experience(
+                            class="form-control" + (" is-invalid" if form.experience.errors else ""),
+                            placeholder="e.g. Entry Level (0-1 yr), 2-4 yrs"
+                        ) }}
+
+                        {% for error in form.experience.errors %}
+                            <small class="text-danger">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        {{ form.skills.label(class="form-label") }}
+
+                        {{ form.skills(
+                            class="form-control" + (" is-invalid" if form.skills.errors else ""),
+                            rows="2",
+                            placeholder="e.g. AutoCAD, Rebar Detailing, BBS Preparation, Concrete Quantity Extraction"
+                        ) }}
+
+                        {% for error in form.skills.errors %}
+                            <small class="text-danger">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+
+
+                <!-- Section 3: Additional Details -->
+                <div class="form-section-title mb-4">
+                    <h4 class="fw-bold" style="color: #011428; font-family: 'Playfair Display', serif; font-size: 1.35rem; border-bottom: 2px solid rgba(1, 20, 40, 0.08); padding-bottom: 10px;">
+                        <i class="fa-solid fa-clipboard-list me-2" style="color: #D8AE62;"></i>
+                        3. Additional Information
+                    </h4>
+                </div>
+
+                <div class="row g-4 mb-4">
+
+                    <div class="col-12">
+
+                        {{ form.job_description.label(class="form-label") }}
+
+                        {{ form.job_description(
+                            class="form-control" + (" is-invalid" if form.job_description.errors else ""),
+                            rows="4",
+                            placeholder="Provide any specific job responsibilities, project scope, software versions, or candidate qualifications..."
+                        ) }}
+
+                        {% for error in form.job_description.errors %}
+                            <small class="text-danger">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div class="col-12">
+
+                        {{ form.additional_message.label(class="form-label") }}
+
+                        {{ form.additional_message(
+                            class="form-control" + (" is-invalid" if form.additional_message.errors else ""),
+                            rows="3",
+                            placeholder="Any additional notes or timeline preferences for joining..."
+                        ) }}
+
+                        {% for error in form.additional_message.errors %}
+                            <small class="text-danger">
+                                {{ error }}
+                            </small>
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div class="col-12 text-center mt-4">
+
+                        {{ form.submit(
+                            class="btn btn-luxury px-5 py-3"
+                        ) }}
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

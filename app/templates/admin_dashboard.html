@@ -1,0 +1,590 @@
+﻿{% extends "base.html" %}
+
+{% block title %}
+Admin Dashboard | APT Structural Campus
+{% endblock %}
+
+{% block meta_robots %}noindex, nofollow{% endblock %}
+
+{% block content %}
+
+<section class="admin-dashboard-section section-padding" style="background: #f4f6f9; min-height: 100vh; padding-top: 130px; padding-bottom: 80px;">
+
+    <div class="container">
+
+        <!-- Admin Control Bar / Sub-Navigation -->
+        <div class="admin-nav-bar d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4 p-3 rounded-3"
+             data-aos="fade-down"
+             style="background: #011428; color: #ffffff; border: 1px solid rgba(216, 174, 98, 0.25); box-shadow: 0 10px 30px rgba(1, 20, 40, 0.15);">
+
+            <div class="d-flex align-items-center gap-2">
+                <span class="badge" style="background: #D8AE62; color: #011428; font-weight: 700; font-size: 0.75rem;">ADMIN AREA</span>
+                <span class="text-white-50 small">|</span>
+                <span class="fw-semibold" style="font-family: 'Poppins', sans-serif; font-size: 0.95rem;">APT Structural Campus Management</span>
+            </div>
+
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+
+                <a href="#candidates-section"
+                   class="btn btn-sm text-white"
+                   style="background: rgba(255, 255, 255, 0.08); border-radius: 6px; font-size: 0.85rem;">
+                    <i class="fa-solid fa-user-graduate me-1 text-warning"></i>
+                    Candidates ({{ registrations|length }})
+                </a>
+
+                <a href="#employers-section"
+                   class="btn btn-sm text-white"
+                   style="background: rgba(255, 255, 255, 0.08); border-radius: 6px; font-size: 0.85rem;">
+                    <i class="fa-solid fa-building-user me-1 text-warning"></i>
+                    Employers ({{ employer_requests|length }})
+                </a>
+
+                <a href="{{ url_for('main.home') }}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-sm text-white-50"
+                   style="font-size: 0.85rem;"
+                   title="Open Public Site in New Tab">
+                    <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>
+                    View Site
+                </a>
+
+                <a href="{{ url_for('main.admin_logout') }}"
+                   class="btn btn-sm px-3"
+                   style="background: #D8AE62; color: #011428; font-weight: 700; border-radius: 6px; font-size: 0.85rem;">
+                    <i class="fa-solid fa-right-from-bracket me-1"></i>
+                    Logout
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Header -->
+        <div class="admin-dashboard-header d-flex justify-content-between align-items-end flex-wrap gap-3 mb-5"
+             data-aos="fade-up">
+
+            <div>
+
+                <span class="section-eyebrow" style="color: #B98938; font-weight: 700; letter-spacing: 2px; font-size: 0.85rem;">
+                    SECURE MANAGEMENT PORTAL
+                </span>
+
+                <h1 style="font-family: 'Playfair Display', serif; color: #011428; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; margin: 8px 0;">
+                    Executive <span>Dashboard</span>
+                </h1>
+
+                <p style="color: #666; margin: 0; font-size: 1rem;">
+                    Review student admission applications and corporate employee requests.
+                </p>
+
+            </div>
+
+            <div>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} alert-dismissible fade show py-2 px-3 m-0" role="alert" style="font-size: 0.88rem;">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+
+        </div>
+
+
+        <!-- Statistics -->
+        <div class="row g-4 mb-5"
+             data-aos="fade-up"
+             data-aos-delay="100">
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="admin-stat-card" style="background: #ffffff; padding: 24px; border-radius: 14px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(1, 20, 40, 0.05); display: flex; align-items: center; gap: 18px;">
+
+                    <div class="admin-stat-icon" style="width: 52px; height: 52px; border-radius: 12px; background: #011428; color: #D8AE62; display: flex; align-items: center; justify-content: center; font-size: 22px;">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+
+                    <div>
+
+                        <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 1.2px; color: #718096; display: block; margin-bottom: 3px;">
+                            CANDIDATES
+                        </span>
+
+                        <strong style="font-size: 1.8rem; color: #011428; font-weight: 700;">
+                            {{ registrations|length }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="admin-stat-card" style="background: #ffffff; padding: 24px; border-radius: 14px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(1, 20, 40, 0.05); display: flex; align-items: center; gap: 18px;">
+
+                    <div class="admin-stat-icon" style="width: 52px; height: 52px; border-radius: 12px; background: #011428; color: #D8AE62; display: flex; align-items: center; justify-content: center; font-size: 22px;">
+                        <i class="fa-solid fa-building-user"></i>
+                    </div>
+
+                    <div>
+
+                        <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 1.2px; color: #718096; display: block; margin-bottom: 3px;">
+                            EMPLOYER REQUESTS
+                        </span>
+
+                        <strong style="font-size: 1.8rem; color: #011428; font-weight: 700;">
+                            {{ employer_requests|length }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="admin-stat-card" style="background: #ffffff; padding: 24px; border-radius: 14px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(1, 20, 40, 0.05); display: flex; align-items: center; gap: 18px;">
+
+                    <div class="admin-stat-icon" style="width: 52px; height: 52px; border-radius: 12px; background: #011428; color: #D8AE62; display: flex; align-items: center; justify-content: center; font-size: 22px;">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+
+                    <div>
+
+                        <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 1.2px; color: #718096; display: block; margin-bottom: 3px;">
+                            TOTAL OPENINGS
+                        </span>
+
+                        <strong style="font-size: 1.8rem; color: #011428; font-weight: 700;">
+                            {{ employer_requests|sum(attribute='employees_required') if employer_requests else 0 }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="admin-stat-card" style="background: #ffffff; padding: 24px; border-radius: 14px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(1, 20, 40, 0.05); display: flex; align-items: center; gap: 18px;">
+
+                    <div class="admin-stat-icon" style="width: 52px; height: 52px; border-radius: 12px; background: #011428; color: #D8AE62; display: flex; align-items: center; justify-content: center; font-size: 22px;">
+                        <i class="fa-solid fa-inbox"></i>
+                    </div>
+
+                    <div>
+
+                        <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 1.2px; color: #718096; display: block; margin-bottom: 3px;">
+                            TOTAL SUBMISSIONS
+                        </span>
+
+                        <strong style="font-size: 1.8rem; color: #011428; font-weight: 700;">
+                            {{ (registrations|length) + (employer_requests|length) }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SECTION 1: Candidate Registrations Table -->
+        <div class="admin-table-card mb-5"
+             id="candidates-section"
+             data-aos="fade-up"
+             data-aos-delay="150"
+             style="background: #ffffff; border-radius: 16px; padding: 30px; border: 1px solid #e2e8f0; box-shadow: 0 6px 25px rgba(1, 20, 40, 0.04);">
+
+            <div class="admin-table-header d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+
+                <div>
+
+                    <span class="section-eyebrow" style="color: #B98938; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px;">
+                        STUDENT ADMISSIONS
+                    </span>
+
+                    <h3 style="font-family: 'Playfair Display', serif; color: #011428; font-weight: 700; margin: 4px 0 0;">
+                        Candidate Registrations ({{ registrations|length }})
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            {% if registrations %}
+
+            <div class="table-responsive">
+
+                <table class="admin-registration-table table align-middle" style="width: 100%; border-collapse: separate; border-spacing: 0;">
+
+                    <thead>
+
+                        <tr style="background: #011428; color: #ffffff;">
+
+                            <th style="padding: 14px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px; border-top-left-radius: 8px;">#</th>
+
+                            <th style="padding: 14px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;">Student Name</th>
+
+                            <th style="padding: 14px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;">Contact Info</th>
+
+                            <th style="padding: 14px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;">Course Selected</th>
+
+                            <th style="padding: 14px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;">Qualification</th>
+
+                            <th style="padding: 14px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;">Applicant Message</th>
+
+                            <th style="padding: 14px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px; border-top-right-radius: 8px;">Submitted Date</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for registration in registrations %}
+
+                        <tr style="border-bottom: 1px solid #f1f5f9;">
+
+                            <td style="padding: 16px; font-weight: 600; color: #718096;">
+                                {{ loop.index }}
+                            </td>
+
+
+                            <td style="padding: 16px;">
+
+                                <strong style="color: #011428; font-size: 0.95rem;">
+                                    {{ registration.full_name }}
+                                </strong>
+
+                            </td>
+
+
+                            <td style="padding: 16px;">
+
+                                <div class="d-flex flex-column gap-1" style="font-size: 0.88rem;">
+
+                                    <a href="mailto:{{ registration.email }}" style="color: #011428; text-decoration: none;">
+                                        <i class="fa-solid fa-envelope me-1 text-muted"></i>
+                                        {{ registration.email }}
+                                    </a>
+
+                                    <a href="tel:{{ registration.phone }}" style="color: #4a5568; text-decoration: none;">
+                                        <i class="fa-solid fa-phone me-1 text-muted"></i>
+                                        {{ registration.phone }}
+                                    </a>
+
+                                </div>
+
+                            </td>
+
+
+                            <td style="padding: 16px;">
+
+                                <span class="course-badge" style="background: rgba(1, 20, 40, 0.06); color: #011428; border: 1px solid rgba(1, 20, 40, 0.12); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">
+                                    {{ registration.course }}
+                                </span>
+
+                            </td>
+
+
+                            <td style="padding: 16px; font-size: 0.88rem; color: #4a5568;">
+                                {{ registration.qualification or "—" }}
+                            </td>
+
+
+                            <td style="padding: 16px; max-width: 250px;">
+
+                                {% if registration.message %}
+
+                                    <span style="font-size: 0.85rem; color: #4a5568; line-height: 1.5; display: block;">
+                                        {{ registration.message }}
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="text-muted">—</span>
+
+                                {% endif %}
+
+                            </td>
+
+
+                            <td style="padding: 16px; font-size: 0.85rem; color: #718096; white-space: nowrap;">
+
+                                {% if registration.created_at %}
+
+                                    <strong>{{ registration.created_at.strftime('%d %b %Y') }}</strong>
+
+                                    <small class="d-block text-muted">
+                                        {{ registration.created_at.strftime('%I:%M %p') }}
+                                    </small>
+
+                                {% else %}
+
+                                    —
+
+                                {% endif %}
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            {% else %}
+
+                <div class="admin-empty-state text-center py-5">
+
+                    <i class="fa-solid fa-inbox fa-3x mb-3" style="color: #D8AE62;"></i>
+
+                    <h4 style="color: #011428; font-weight: 700;">
+                        No Candidate Registrations Yet
+                    </h4>
+
+                    <p class="text-muted">
+                        Student registrations will appear here once someone submits the course enrollment form.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- SECTION 2: Employer Hiring Requests Table -->
+        <div class="admin-table-card"
+             id="employers-section"
+             data-aos="fade-up"
+             data-aos-delay="200"
+             style="background: #ffffff; border-radius: 16px; padding: 30px; border: 1px solid #e2e8f0; box-shadow: 0 6px 25px rgba(1, 20, 40, 0.04);">
+
+            <div class="admin-table-header d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+
+                <div>
+
+                    <span class="section-eyebrow" style="color: #B98938; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px;">
+                        CORPORATE CLIENTS
+                    </span>
+
+                    <h3 style="font-family: 'Playfair Display', serif; color: #011428; font-weight: 700; margin: 4px 0 0;">
+                        Employer Hiring Requests ({{ employer_requests|length }})
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            {% if employer_requests %}
+
+            <div class="table-responsive">
+
+                <table class="admin-registration-table table align-middle" style="width: 100%; border-collapse: separate; border-spacing: 0;">
+
+                    <thead>
+
+                        <tr style="background: #011428; color: #ffffff;">
+
+                            <th style="padding: 14px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px; border-top-left-radius: 8px;">Req ID</th>
+
+                            <th style="padding: 14px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;">Company & Contact</th>
+
+                            <th style="padding: 14px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;">Contact Details</th>
+
+                            <th style="padding: 14px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;">Role & Openings</th>
+
+                            <th style="padding: 14px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;">Type / Exp</th>
+
+                            <th style="padding: 14px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;">Requirements & Details</th>
+
+                            <th style="padding: 14px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px; border-top-right-radius: 8px;">Submitted Date</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for req in employer_requests %}
+
+                        <tr style="border-bottom: 1px solid #f1f5f9;">
+
+                            <td style="padding: 16px; white-space: nowrap;">
+                                <strong style="color: #011428; background: rgba(1, 20, 40, 0.06); padding: 4px 8px; border-radius: 6px; font-size: 0.85rem;">
+                                    #ER-{{ "%04d"|format(req.id) }}
+                                </strong>
+                            </td>
+
+
+                            <td style="padding: 16px;">
+
+                                <strong style="color: #011428; font-size: 0.95rem; display: block;">
+                                    {{ req.company_name }}
+                                </strong>
+
+                                <div class="text-muted small mt-1">
+                                    <i class="fa-solid fa-user me-1"></i> {{ req.contact_person }}
+                                </div>
+
+                                <div class="text-muted small">
+                                    <i class="fa-solid fa-location-dot me-1"></i> {{ req.location }}
+                                </div>
+
+                            </td>
+
+
+                            <td style="padding: 16px;">
+
+                                <div class="d-flex flex-column gap-1" style="font-size: 0.88rem;">
+
+                                    <a href="mailto:{{ req.email }}" style="color: #011428; text-decoration: none;">
+                                        <i class="fa-solid fa-envelope me-1 text-muted"></i>
+                                        {{ req.email }}
+                                    </a>
+
+                                    <a href="tel:{{ req.phone }}" style="color: #4a5568; text-decoration: none;">
+                                        <i class="fa-solid fa-phone me-1 text-muted"></i>
+                                        {{ req.phone }}
+                                    </a>
+
+                                </div>
+
+                            </td>
+
+
+                            <td style="padding: 16px;">
+
+                                <div class="fw-bold" style="color: #011428; font-size: 0.92rem;">
+                                    {{ req.position }}
+                                </div>
+
+                                <div class="mt-1">
+                                    <span class="badge" style="background-color: #011428; color: #D8AE62; font-size: 0.75rem; padding: 4px 8px; border-radius: 6px;">
+                                        {{ req.employees_required }} Opening{% if req.employees_required > 1 %}s{% endif %}
+                                    </span>
+                                </div>
+
+                            </td>
+
+
+                            <td style="padding: 16px;">
+
+                                <div>
+                                    <span class="course-badge" style="background: rgba(216, 174, 98, 0.15); color: #B98938; padding: 4px 10px; border-radius: 20px; font-size: 0.78rem; font-weight: 600;">
+                                        {{ req.employment_type or 'Full Time' }}
+                                    </span>
+                                </div>
+
+                                <small class="text-muted d-block mt-1">
+                                    Exp: {{ req.experience or 'Not specified' }}
+                                </small>
+
+                            </td>
+
+
+                            <td style="padding: 16px; max-width: 280px;">
+
+                                {% if req.skills %}
+                                    <div class="mb-1" style="font-size: 0.85rem; color: #2d3748;">
+                                        <strong>Skills:</strong> {{ req.skills }}
+                                    </div>
+                                {% endif %}
+
+                                {% if req.job_description %}
+                                    <div class="text-muted small mb-1" style="line-height: 1.4;">
+                                        <strong>JD:</strong> {{ req.job_description|truncate(90) }}
+                                    </div>
+                                {% endif %}
+
+                                {% if req.additional_message %}
+                                    <div class="text-muted small fst-italic" style="line-height: 1.4;">
+                                        "{{ req.additional_message|truncate(70) }}"
+                                    </div>
+                                {% endif %}
+
+                                {% if not req.skills and not req.job_description and not req.additional_message %}
+                                    <span class="text-muted">—</span>
+                                {% endif %}
+
+                            </td>
+
+
+                            <td style="padding: 16px; font-size: 0.85rem; color: #718096; white-space: nowrap;">
+
+                                {% if req.created_at %}
+
+                                    <strong>{{ req.created_at.strftime('%d %b %Y') }}</strong>
+
+                                    <small class="d-block text-muted">
+                                        {{ req.created_at.strftime('%I:%M %p') }}
+                                    </small>
+
+                                {% else %}
+
+                                    —
+
+                                {% endif %}
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            {% else %}
+
+                <div class="admin-empty-state text-center py-5">
+
+                    <i class="fa-solid fa-building-circle-check fa-3x mb-3" style="color: #D8AE62;"></i>
+
+                    <h4 style="color: #011428; font-weight: 700;">
+                        No Employer Hiring Requests Yet
+                    </h4>
+
+                    <p class="text-muted">
+                        Corporate hiring requests will appear here once an organization submits the employee request form.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,146 @@
+<!-- =========================================================
+     CONTACT FORM
+     ========================================================= -->
+
+<form class="premium-contact-form"
+      method="POST"
+      action="{{ url_for('main.contact') }}">
+
+    {% if form is defined and form.hidden_tag is defined %}
+        {{ form.hidden_tag() }}
+    {% endif %}
+
+
+    <div class="row g-3">
+
+        <!-- NAME -->
+
+        <div class="col-md-6">
+
+            <label for="name">
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your name"
+                autocomplete="name"
+                required>
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div class="col-md-6">
+
+            <label for="email">
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required>
+
+        </div>
+
+
+        <!-- PHONE -->
+
+        <div class="col-md-6">
+
+            <label for="phone">
+                Phone Number
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+91 XXXXX XXXXX"
+                autocomplete="tel">
+
+        </div>
+
+
+        <!-- SUBJECT -->
+
+        <div class="col-md-6">
+
+            <label for="subject">
+                Enquiry Type
+            </label>
+
+            <select
+                id="subject"
+                name="subject"
+                required>
+
+                <option value="" selected disabled>
+                    Select an option
+                </option>
+
+                <option value="course">
+                    Course Enquiry
+                </option>
+
+                <option value="hiring">
+                    Hiring Solutions
+                </option>
+
+                <option value="career">
+                    Career Opportunity
+                </option>
+
+                <option value="general">
+                    General Enquiry
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div class="col-12">
+
+            <label for="message">
+                Message
+            </label>
+
+            <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Tell us how we can help..."
+                required></textarea>
+
+        </div>
+
+
+        <!-- SUBMIT -->
+
+        <div class="col-12">
+
+            <button
+                type="submit"
+                class="btn-luxury contact-submit-btn">
+
+                Send Enquiry
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</form>

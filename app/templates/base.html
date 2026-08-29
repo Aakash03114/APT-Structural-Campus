@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% if title %}
+        {{ title }} | APT Structural Campus
+        {% else %}
+        APT Structural Campus
+        {% endif %}
+    <!-- =========================================================
+     SEO
+     ========================================================= -->
+
+<title>
+    {% block title %}
+        {{ config.SITE_NAME }} | Structural Detailing & Estimation
+    {% endblock %}
+</title>
+
+<meta
+    name="description"
+    content="{% block meta_description %}{{ config.DEFAULT_DESCRIPTION }}{% endblock %}">
+
+<meta
+    name="keywords"
+    content="{% block meta_keywords %}{{ config.DEFAULT_KEYWORDS }}{% endblock %}">
+
+<meta
+    name="author"
+    content="APT Structural Campus">
+
+<meta
+    name="robots"
+    content="{% block meta_robots %}index, follow{% endblock %}">
+
+<link
+    rel="canonical"
+    href="{% block canonical_url %}{{ config.DOMAIN }}{{ request.path }}{% endblock %}">
+
+    <!-- Open Graph -->
+
+<meta
+    property="og:type"
+    content="website">
+
+<meta
+    property="og:title"
+    content="{% block og_title %}APT Structural Campus | Structural Detailing & Estimation{% endblock %}">
+
+<meta
+    property="og:description"
+    content="{% block og_description %}{{ config.DEFAULT_DESCRIPTION }}{% endblock %}">
+
+<meta
+    property="og:url"
+    content="{{ config.DOMAIN }}{{ request.path }}">
+
+<meta
+    property="og:site_name"
+    content="APT Structural Campus">
+
+<meta
+    property="og:image"
+    content="{{ config.DOMAIN }}{{ url_for('static', filename='images/hero/home-page-main.jpeg') }}">
+
+    <!-- Twitter -->
+
+<meta
+    name="twitter:card"
+    content="summary_large_image">
+
+<meta
+    name="twitter:title"
+    content="{% block twitter_title %}APT Structural Campus{% endblock %}">
+
+<meta
+    name="twitter:description"
+    content="{% block twitter_description %}{{ config.DEFAULT_DESCRIPTION }}{% endblock %}">
+
+<meta
+    name="twitter:image"
+    content="{{ config.DOMAIN }}{{ url_for('static', filename='images/hero/home-page-main.jpeg') }}">
+
+    <!-- =========================================================
+     STRUCTURED DATA
+     ========================================================= -->
+
+<script type="application/ld+json">
+
+{
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+
+    "name": "APT Structural Campus",
+
+    "url": "https://www.aptcampus.com",
+
+    "email": "info@aptcampus.com",
+
+    "description":
+        "Professional training platform focused on structural detailing, rebar estimation and concrete estimation.",
+
+    "sameAs": [
+        "https://www.linkedin.com/in/apt-structural-campus-411a01431",
+        "https://www.instagram.com/",
+        "https://www.youtube.com/"
+    ],
+
+    "logo": {
+        "@type": "ImageObject",
+        "url":
+            "https://www.aptcampus.com/static/images/logo/logo.png"
+    }
+}
+
+</script>
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS -->
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+        rel="stylesheet">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/responsive.css') }}">
+    
+    <link rel="icon"
+          type="image/png"
+          href="{{ url_for('static', filename='images/logo/logo.png') }}">
+    
+          <link rel="apple-touch-icon"
+          href="{{ url_for('static', filename='images/logo/logo.png') }}">
+    
+
+</head>
+
+<body>
+
+    <!-- Loader -->
+
+    <div id="loader">
+
+        <div class="loader-circle"></div>
+
+    </div>
+
+    <!-- Scroll Progress -->
+
+    <div id="progressBar"></div>
+
+    {% include 'navbar.html' %}
+
+    <main id="main-content">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- Back To Top -->
+
+    <button id="backTop">
+
+        <i class="fas fa-arrow-up"></i>
+
+    </button>
+
+    <!-- WhatsApp -->
+
+    <a href="#"
+        class="whatsapp-btn">
+
+        <i class="fab fa-whatsapp"></i>
+
+    </a>
+
+    <!-- Bootstrap -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS -->
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- JS -->
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+<a class="skip-link" href="#main-content">
+    Skip to main content
+</a>
+</html>

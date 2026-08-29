@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}
+Structural Detailing & Estimation Courses | APT Structural Campus
+{% endblock %}
+
+{% block meta_description %}
+Explore professional courses in 2D Rebar Detailing, Rebar Estimation, Concrete Estimation and upcoming 3D Rebar Detailing at APT Structural Campus.
+{% endblock %}
+
+{% block meta_keywords %}
+2D rebar detailing course, rebar estimation course, concrete estimation course, 3D rebar detailing, structural detailing courses
+{% endblock %}
+
+{% block content %}
+
+{% include "components/courses_hero.html" %}
+
+{% include "components/course_overview.html" %}
+
+<section class="course-details-wrapper">
+
+    {% for course in courses %}
+
+        {% include "components/course_detail.html" %}
+
+    {% endfor %}
+
+</section>
+
+{% include "components/courses_cta.html" %}
+
+{% endblock %}

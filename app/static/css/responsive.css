@@ -1,0 +1,583 @@
+/* =========================================================
+   APT STRUCTURAL CAMPUS
+   RESPONSIVE / MOBILE REFINEMENT
+   ========================================================= */
+
+
+/* =========================================================
+   TABLETS — BELOW 992px
+   ========================================================= */
+
+@media (max-width: 992px) {
+
+    /* ---------- NAVBAR ---------- */
+
+    .custom-navbar {
+        padding: 14px 0;
+    }
+
+    .logo-img {
+        max-height: 80px;
+        width: auto;
+    }
+
+    .logo-title {
+        font-size: 23px;
+    }
+
+    .logo-text small {
+        font-size: 10px;
+    }
+
+    .navbar-collapse {
+        margin-top: 15px;
+        padding: 15px 0;
+    }
+
+    .navbar-nav {
+        align-items: flex-start;
+    }
+
+    .nav-link {
+        padding: 10px 0 !important;
+        color: #011428 !important;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        color: #ffffff !important;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero-section {
+        min-height: auto;
+        padding: 150px 0 100px;
+    }
+
+    .inner-page-hero-content {
+        padding: 160px 0 75px;
+    }
+
+    .hero-content {
+        max-width: 760px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: clamp(42px, 6vw, 64px);
+    }
+
+    .hero-description {
+        max-width: 680px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-trust {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        margin-top: 60px;
+    }
+
+    .hero-image-wrapper {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+
+    /* ---------- SECTION SPACING ---------- */
+
+    .section-padding {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+
+    /* ---------- SERVICE CARDS ---------- */
+
+    .service-card {
+        height: 100%;
+    }
+
+
+    /* ---------- FUTURE COURSE ---------- */
+
+    .future-course-wrapper {
+        gap: 45px;
+    }
+
+
+    /* ---------- ABOUT / HIRING ---------- */
+
+    .about-image-wrapper,
+    .classroom-image-wrapper,
+    .hiring-image-wrapper {
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* ---------- PLACEHOLDER ---------- */
+
+    .placeholder-page {
+        padding: 120px 0;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE — BELOW 768px
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* ---------- GLOBAL ---------- */
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .section-padding {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+
+    /* ---------- NAVBAR ---------- */
+
+    .custom-navbar {
+        padding: 10px 0;
+    }
+
+    .navbar-brand {
+        max-width: calc(100% - 60px);
+    }
+
+    .logo-img {
+        max-height: 65px;
+    }
+
+    .logo-title {
+        font-size: 20px;
+    }
+
+    .logo-text small {
+        display: none;
+    }
+
+    .navbar-toggler {
+        padding: 8px 10px;
+    }
+
+    .navbar-collapse {
+        padding: 12px 0 5px;
+    }
+
+    .nav-link {
+        margin: 0;
+        padding: 11px 0 !important;
+        font-size: 15px;
+        color: #011428 !important;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        color: #ffffff !important;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero-section {
+        padding: 125px 0 80px;
+    }
+
+    .hero-title {
+        font-size: clamp(36px, 10vw, 52px);
+        line-height: 1.08;
+    }
+
+    .hero-description {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin-top: 28px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-trust {
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        margin-top: 35px;
+    }
+
+    .hero-trust-item {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        margin-top: 50px;
+    }
+
+    .hero-floating-card {
+        padding: 10px 14px;
+    }
+
+    .hero-floating-card strong,
+    .hero-floating-card span {
+        font-size: 12px;
+    }
+
+    .card-one {
+        left: -8px;
+    }
+
+    .card-two {
+        right: -8px;
+    }
+
+    .hero-gold-orbit {
+        display: none;
+    }
+
+    .hero-scroll-indicator {
+        display: none;
+    }
+
+
+    /* ---------- SECTION HEADINGS ---------- */
+
+    .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .section-heading.text-center {
+        align-items: center;
+    }
+
+    .section-title {
+        font-size: clamp(32px, 8vw, 44px);
+        line-height: 1.15;
+    }
+
+    .section-description {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+
+    /* ---------- SERVICES ---------- */
+
+    .service-image {
+        height: 230px;
+    }
+
+    .service-content {
+        padding: 25px 22px;
+    }
+
+    .service-content h3 {
+        font-size: 24px;
+    }
+
+
+    /* ---------- FUTURE COURSES ---------- */
+
+    .future-course-wrapper {
+        gap: 35px;
+    }
+
+    .future-course-content h3 {
+        font-size: 34px;
+    }
+
+    .future-course-features {
+        gap: 20px;
+    }
+
+    .future-feature {
+        align-items: flex-start;
+    }
+
+
+    /* ---------- ABOUT ---------- */
+
+    .about-intro-section .row,
+    .classroom-section .row,
+    .hiring-intro-section .row {
+        gap: 35px !important;
+    }
+
+    .about-highlights {
+        gap: 18px;
+    }
+
+
+    /* ---------- BUTTONS ---------- */
+
+    .btn-luxury,
+    .btn-outline-luxury {
+        min-height: 50px;
+        padding: 13px 22px;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    .footer {
+        text-align: center;
+    }
+
+    .footer .row {
+        gap: 30px;
+    }
+
+    .footer-logo-wrapper {
+        margin: 18px auto 0;
+    }
+
+    .footer-logo-img {
+        width: 180px;
+        height: 180px;
+        max-width: 85%;
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
+
+
+    /* ---------- FLOATING BUTTONS ---------- */
+
+    .back-to-top,
+    .whatsapp-float {
+        width: 46px;
+        height: 46px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES — BELOW 576px
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+    /* ---------- CONTAINER ---------- */
+
+    .container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+
+    /* ---------- NAVBAR ---------- */
+
+    .logo-img {
+        max-height: 55px;
+    }
+
+    .logo-title {
+        font-size: 18px;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero-section {
+        padding: 115px 0 65px;
+    }
+
+    .inner-page-hero-content {
+        padding: 135px 0 55px;
+    }
+
+    .hero-eyebrow {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .hero-title {
+        font-size: 35px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-floating-card {
+        padding: 8px 11px;
+    }
+
+    .hero-floating-card .floating-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .card-one {
+        left: -5px;
+        bottom: 20px;
+    }
+
+    .card-two {
+        right: -5px;
+        bottom: 20px;
+    }
+
+
+    /* ---------- SECTION ---------- */
+
+    .section-padding {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .section-eyebrow {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .section-title {
+        font-size: 31px;
+    }
+
+
+    /* ---------- SERVICE CARDS ---------- */
+
+    .service-image {
+        height: 210px;
+    }
+
+    .service-content {
+        padding: 22px 18px;
+    }
+
+    .service-content h3 {
+        font-size: 22px;
+    }
+
+    .service-content p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+
+    /* ---------- FUTURE COURSE ---------- */
+
+    .future-course-content h3 {
+        font-size: 30px;
+    }
+
+    .future-course-lead {
+        font-size: 16px;
+    }
+
+
+    /* ---------- CTA ---------- */
+
+    .btn-luxury,
+    .btn-outline-luxury {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    /* ---------- FLOATING ELEMENTS ---------- */
+
+    .back-to-top {
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .whatsapp-float {
+        left: 15px;
+        bottom: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES — BELOW 400px
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .hero-title {
+        font-size: 31px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .hero-floating-card {
+        transform: scale(0.9);
+    }
+
+    .card-one {
+        left: -12px;
+    }
+
+    .card-two {
+        right: -12px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+}
+
+/* =========================================================
+   ADMIN DASHBOARD MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .admin-dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .admin-dashboard-header .btn {
+        width: 100%;
+    }
+
+    .admin-stat-card {
+        padding: 22px;
+    }
+
+    .admin-table-card {
+        padding: 15px;
+    }
+
+    .admin-registration-table {
+        min-width: 1000px;
+    }
+
+}

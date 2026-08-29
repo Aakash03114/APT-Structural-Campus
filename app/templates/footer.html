@@ -1,0 +1,110 @@
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="row gy-5">
+
+            <div class="col-lg-4">
+
+                <h3>APT Structural Campus</h3>
+
+                <p>
+
+                    Professional Structural Detailing &
+                    Estimation Training Institute.
+
+                </p>
+
+                <div class="footer-logo-wrapper mt-3">
+
+                    <img
+                        src="{{ url_for('static', filename='images/logo/logo-optimized.png') }}"
+                        alt="APT Structural Campus Logo"
+                        class="footer-logo-img"
+                        loading="lazy">
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-2">
+
+                <h5>Quick Links</h5>
+
+                <ul class="footer-links">
+
+                    <li><a href="{{ url_for('main.home') }}">Home</a></li>
+
+                    <li><a href="{{ url_for('main.about') }}">About</a></li>
+
+                    <li><a href="{{ url_for('main.courses') }}">Courses</a></li>
+
+                    <li><a href="{{ url_for('main.hiring') }}">Hiring</a></li>
+
+                    <li><a href="{{ url_for('main.contact') }}">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="col-lg-3 footer-contact">
+
+                <h5>Contact</h5>
+
+                <p class="mb-2">
+
+                    <a href="mailto:{{ config.CONTACT_EMAIL or 'info@aptcampus.com' }}">
+                        <i class="fa-solid fa-envelope me-2"></i>
+                        info@aptcampus.com
+                    </a>
+
+                </p>
+
+                <p class="mb-2">
+
+                    <a href="{{ config.DOMAIN or 'https://www.aptcampus.com' }}"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="fa-solid fa-globe me-2"></i>
+                        www.aptcampus.com
+                    </a>
+
+                </p>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <h5>Follow Us</h5>
+
+                <div class="social-icons">
+
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+
+                    <a href="https://www.linkedin.com/in/apt-structural-campus-411a01431"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="copyright">
+
+            © 2026 APT Structural Campus.
+            All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
