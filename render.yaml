@@ -8,7 +8,7 @@ services:
     plan: free        # change to a paid plan if you need more dynos / resources
     envVars:
       # ---- Flask / security ----
-      SECRET_KEY: ${SECRET_KEY}
+      SECRET_KEY: ${486468468797143544fswe;lmg;lrrmhe54544gwmjaqkjrflq3n547fjjqawnfj}
       ADMIN_USERNAME: ${ADMIN_USERNAME}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD}   # you can also set ADMIN_PASSWORD_HASH directly
       SESSION_COOKIE_SECURE: "False"
