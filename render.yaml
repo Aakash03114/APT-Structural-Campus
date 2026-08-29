@@ -12,8 +12,10 @@ services:
       ADMIN_USERNAME: ${ADMIN_USERNAME}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD}   # you can also set ADMIN_PASSWORD_HASH directly
       SESSION_COOKIE_SECURE: "False"
+
       # ---- Mail (Zoho) ----
       MAIL_USERNAME: ${MAIL_USERNAME}
       MAIL_PASSWORD: ${MAIL_PASSWORD}
+
       # ---- Any other custom env vars you use in .env ----
       # e.g. DATABASE_URL, etc.
