@@ -2,20 +2,27 @@ services:
   - type: web
     name: apt-structural-campus
     env: python
-    region: oregon   # or any region you prefer
+    region: oregon               # or any region you prefer
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app
-    plan: free        # change to a paid plan if you need more dynos / resources
+    plan: free                   # change to a paid plan if you need more dynos / resources
     envVars:
-      # ---- Flask / security ----
-      SECRET_KEY: ${486468468797143544fswe;lmg;lrrmhe54544gwmjaqkjrflq3n547fjjqawnfj}
-      ADMIN_USERNAME: ${ADMIN_USERNAME}
-      ADMIN_PASSWORD: ${ADMIN_PASSWORD}   # you can also set ADMIN_PASSWORD_HASH directly
-      SESSION_COOKIE_SECURE: "False"
+      - key: SECRET_KEY
+        value: ${SECRET_KEY}
+      - key: ADMIN_USERNAME
+        value: ${ADMIN_USERNAME}
+      - key: ADMIN_PASSWORD
+        value: ${ADMIN_PASSWORD}   # you can also set ADMIN_PASSWORD_HASH directly
+      - key: SESSION_COOKIE_SECURE
+        value: "False"
 
       # ---- Mail (Zoho) ----
-      MAIL_USERNAME: ${MAIL_USERNAME}
-      MAIL_PASSWORD: ${MAIL_PASSWORD}
+      - key: MAIL_USERNAME
+        value: ${MAIL_USERNAME}
+      - key: MAIL_PASSWORD
+        value: ${MAIL_PASSWORD}
 
       # ---- Any other custom env vars you use in .env ----
-      # e.g. DATABASE_URL, etc.
+      # Example:
+      # - key: DATABASE_URL
+      #   value: ${DATABASE_URL}
