@@ -2,27 +2,20 @@ services:
   - type: web
     name: apt-structural-campus
     env: python
-    region: oregon               # or any region you prefer
+    region: oregon
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
-    plan: free                   # change to a paid plan if you need more dynos / resources
+    startCommand: gunicorn wsgi:app   # <-- change from app:app to wsgi:app
+    plan: free
     envVars:
       - key: SECRET_KEY
         value: ${SECRET_KEY}
       - key: ADMIN_USERNAME
         value: ${ADMIN_USERNAME}
       - key: ADMIN_PASSWORD
-        value: ${ADMIN_PASSWORD}   # you can also set ADMIN_PASSWORD_HASH directly
+        value: ${ADMIN_PASSWORD}
       - key: SESSION_COOKIE_SECURE
         value: "False"
-
-      # ---- Mail (Zoho) ----
       - key: MAIL_USERNAME
         value: ${MAIL_USERNAME}
       - key: MAIL_PASSWORD
         value: ${MAIL_PASSWORD}
-
-      # ---- Any other custom env vars you use in .env ----
-      # Example:
-      # - key: DATABASE_URL
-      #   value: ${DATABASE_URL}
