@@ -208,6 +208,24 @@ def favicon():
     )
 
 
+@main.route("/apple-touch-icon.png")
+def apple_touch_icon():
+    return send_from_directory(
+        os.path.join(current_app.root_path, "static"),
+        "apple-touch-icon.png",
+        mimetype="image/png"
+    )
+
+
+@main.route("/icon.svg")
+def icon_svg():
+    return send_from_directory(
+        os.path.join(current_app.root_path, "static"),
+        "icon.svg",
+        mimetype="image/svg+xml"
+    )
+
+
 @main.route("/google7440c8aafe31bbe1.html")
 def google_verification():
     return send_from_directory(
