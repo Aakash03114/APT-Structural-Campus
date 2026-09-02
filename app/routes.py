@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, url_for, request, redirect, session, flash, current_app
+import os
+from flask import Blueprint, render_template, url_for, request, redirect, session, flash, current_app, send_from_directory
 from werkzeug.security import check_password_hash
 from .forms import RegistrationForm, EmployerRequestForm, AdminLoginForm
 from .models import db, Registration, EmployerRequest
@@ -196,6 +197,15 @@ def contact():
         "contact.html",
         title="Contact"
     )
+
+@main.route("/favicon.ico")
+def favicon():
+    return send_from_directory(
+        os.path.join(current_app.root_path, "static"),
+        "favicon.ico",
+        mimetype="image/vnd.microsoft.icon"
+    )
+
 
 @main.route("/robots.txt")
 def robots():

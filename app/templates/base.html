@@ -7,20 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>
-        {% if title %}
-        {{ title }} | APT Structural Campus
-        {% else %}
-        APT Structural Campus
-        {% endif %}
-    <!-- =========================================================
-     SEO
-     ========================================================= -->
-
-<title>
-    {% block title %}
-        {{ config.SITE_NAME }} | Structural Detailing & Estimation
-    {% endblock %}
-</title>
+        {% block title %}
+            {% if title %}
+                {{ title }} | APT Structural Campus
+            {% else %}
+                APT Structural Campus | Structural Detailing & Estimation
+            {% endif %}
+        {% endblock %}
+    </title>
 
 <meta
     name="description"
@@ -155,12 +149,11 @@
     <link rel="stylesheet"
         href="{{ url_for('static', filename='css/responsive.css') }}">
     
-    <link rel="icon"
-          type="image/png"
-          href="{{ url_for('static', filename='images/logo/logo.png') }}">
-    
-          <link rel="apple-touch-icon"
-          href="{{ url_for('static', filename='images/logo/logo.png') }}">
+    <!-- Favicon / Tab Icon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/logo/logo-optimized1.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/logo/logo-optimized1.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/logo/logo-optimized1.png') }}">
     
 
 </head>
