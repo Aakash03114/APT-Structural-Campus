@@ -1,4 +1,5 @@
 import os
+from datetime import datetime, timezone
 from flask import Blueprint, render_template, url_for, request, redirect, session, flash, current_app, send_from_directory
 from werkzeug.security import check_password_hash
 from .forms import RegistrationForm, EmployerRequestForm, AdminLoginForm
@@ -221,29 +222,45 @@ def sitemap():
     pages = [
         {
             "url": url_for("main.home", _external=True),
-            "priority": "1.0"
-        },
-        {
-            "url": url_for("main.about", _external=True),
-            "priority": "0.8"
+            "priority": "1.0",
+            "changefreq": "daily"
         },
         {
             "url": url_for("main.courses", _external=True),
-            "priority": "0.9"
+            "priority": "0.9",
+            "changefreq": "weekly"
         },
         {
             "url": url_for("main.hiring", _external=True),
-            "priority": "0.8"
+            "priority": "0.9",
+            "changefreq": "weekly"
+        },
+        {
+            "url": url_for("main.about", _external=True),
+            "priority": "0.8",
+            "changefreq": "monthly"
         },
         {
             "url": url_for("main.contact", _external=True),
-            "priority": "0.7"
+            "priority": "0.8",
+            "changefreq": "monthly"
+        },
+        {
+            "url": url_for("main.register", _external=True),
+            "priority": "0.8",
+            "changefreq": "weekly"
+        },
+        {
+            "url": url_for("main.employer_request", _external=True),
+            "priority": "0.8",
+            "changefreq": "weekly"
         }
     ]
 
     return render_template(
         "sitemap.xml",
         pages=pages,
+        today=datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         mimetype="application/xml"
     )
 

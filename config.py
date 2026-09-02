@@ -51,17 +51,17 @@ class Config:
     # ==============================
 
     DEFAULT_DESCRIPTION = (
-        "APT Structural Campus provides professional training "
-        "in Rebar Detailing, Rebar Estimation and Concrete "
-        "Estimation, helping aspiring structural professionals "
-        "build practical, industry-ready skills."
+        "APT Structural Campus provides professional training and hiring solutions "
+        "in Detailing, Estimation, Rebar Detailing, Rebar Estimation, and Civil Engineering. "
+        "Connecting civil professionals with job vacancies, rebar training, and employer hiring solutions."
     )
 
     DEFAULT_KEYWORDS = (
+        "Detailing, Estimation, Rebar detailing, Rebar estimation, "
+        "detailing training, rebar training, estimation training, "
+        "Detailing hiring, Estimation hiring, Civil, Civil job vacancy, "
         "APT Structural Campus, structural detailing training, "
-        "rebar detailing course, rebar estimation, concrete "
-        "estimation, structural engineering training, "
-        "2D rebar detailing, 3D rebar detailing"
+        "2D rebar detailing, 3D rebar detailing, concrete estimation"
     )
 
     # ==============================

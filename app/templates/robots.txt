@@ -1,6 +1,24 @@
+# =========================================================
+# APT Structural Campus - Search Engine Crawler Directives
+# =========================================================
+
 User-agent: *
+Allow: /
+Allow: /static/
 Disallow: /admin
 Disallow: /admin/
-Allow: /
 
-Sitemap: https://www.aptcampus.com/sitemap.xml
+User-agent: Googlebot
+Allow: /
+Allow: /static/
+Disallow: /admin
+Disallow: /admin/
+
+User-agent: Bingbot
+Allow: /
+Allow: /static/
+Disallow: /admin
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: {{ config.DOMAIN }}/sitemap.xml
