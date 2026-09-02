@@ -198,25 +198,44 @@ def hiring():
 def contact():
     form = ContactForm()
 
-    if form.validate_on_submit():
-        name = form.name.data.strip()
-        email = form.email.data.strip()
-        phone = form.phone.data.strip() if form.phone.data else ""
-        subject = form.subject.data
-        message = form.message.data.strip()
+    if request.method == "POST":
+        if form.validate_on_submit():
+            name = form.name.data.strip()
+            email = form.email.data.strip()
+            phone = form.phone.data.strip() if form.phone.data else ""
+            subject = form.subject.data or "General Enquiry"
+            message = form.message.data.strip()
+        else:
+            name = request.form.get("name", "").strip()
+            email = request.form.get("email", "").strip()
+            phone = request.form.get("phone", "").strip()
+            subject = request.form.get("subject", "General Enquiry").strip()
+            message = request.form.get("message", "").strip()
 
-        try:
-            send_admin_contact_email(name, email, phone, subject, message)
-        except Exception as e:
-            print("ADMIN CONTACT EMAIL ERROR:", e)
+        if name and email and message:
+            admin_ok = False
+            user_ok = False
 
-        try:
-            send_contact_confirmation_email(name, email, subject, message)
-        except Exception as e:
-            print("USER CONTACT CONFIRMATION EMAIL ERROR:", e)
+            try:
+                send_admin_contact_email(name, email, phone, subject, message)
+                admin_ok = True
+            except Exception as e:
+                print("ADMIN CONTACT EMAIL ERROR:", e)
 
-        flash("Thank you for reaching out! Your message has been sent successfully. We will get back to you soon.", "success")
-        return redirect(url_for("main.contact"))
+            try:
+                send_contact_confirmation_email(name, email, subject, message)
+                user_ok = True
+            except Exception as e:
+                print("USER CONTACT CONFIRMATION EMAIL ERROR:", e)
+
+            if admin_ok or user_ok:
+                flash("Thank you for reaching out! Your message has been sent successfully. We will get back to you soon.", "success")
+            else:
+                flash("Your message was received, but there was an issue sending the notification email. Our team will review your enquiry shortly.", "info")
+
+            return redirect(url_for("main.contact"))
+        else:
+            flash("Please fill in all required fields (Name, Email, and Message).", "danger")
 
     return render_template(
         "contact.html",
