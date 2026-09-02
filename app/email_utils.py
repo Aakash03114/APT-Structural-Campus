@@ -4,11 +4,16 @@ from flask_mail import Message
 from . import mail
 
 
+def _get_sender():
+    return current_app.config.get("MAIL_DEFAULT_SENDER") or current_app.config.get("MAIL_USERNAME")
+
+
 def send_admin_registration_email(registration):
 
     msg = Message(
         subject="New Registration - APT Structural Campus",
         recipients=[current_app.config["CONTACT_EMAIL"]],
+        sender=_get_sender()
     )
 
     msg.body = f"""
@@ -49,6 +54,7 @@ def send_applicant_confirmation_email(registration):
     msg = Message(
         subject="Registration Received - APT Structural Campus",
         recipients=[registration.email],
+        sender=_get_sender()
     )
 
     msg.body = f"""
@@ -83,6 +89,7 @@ def send_admin_employer_request_email(employer_request):
     msg = Message(
         subject=f"New Employer Hiring Request - {employer_request.company_name}",
         recipients=[current_app.config["CONTACT_EMAIL"]],
+        sender=_get_sender()
     )
 
     msg.body = f"""
@@ -125,6 +132,7 @@ def send_employer_confirmation_email(employer_request):
     msg = Message(
         subject="Hiring Request Received – APT Structural Campus",
         recipients=[employer_request.email],
+        sender=_get_sender()
     )
 
     msg.body = f"""
@@ -147,6 +155,65 @@ If you have any urgent questions or require customized hiring solutions, please 
 info@aptcampus.com
 
 Regards,
+
+APT Structural Campus
+Professional Structural Engineering & Hiring Solutions
+https://www.aptcampus.com
+"""
+
+    mail.send(msg)
+
+
+def send_admin_contact_email(name, email, phone, subject, message):
+
+    msg = Message(
+        subject=f"New Contact Enquiry ({subject.title()}) - {name}",
+        recipients=[current_app.config["CONTACT_EMAIL"]],
+        sender=_get_sender()
+    )
+
+    msg.body = f"""
+New Contact Enquiry received for APT Structural Campus.
+
+Enquiry Details
+---------------
+Full Name: {name}
+Email Address: {email}
+Phone Number: {phone or 'Not provided'}
+Enquiry Type: {subject.title()}
+
+Message:
+{message}
+
+Regards,
+APT Structural Campus Contact Portal
+"""
+
+    mail.send(msg)
+
+
+def send_contact_confirmation_email(name, email, subject, message):
+
+    msg = Message(
+        subject="We Received Your Message – APT Structural Campus",
+        recipients=[email],
+        sender=_get_sender()
+    )
+
+    msg.body = f"""
+Dear {name},
+
+Thank you for reaching out to APT Structural Campus.
+
+We have received your enquiry regarding "{subject.title()}". Our team will review your message and respond to you as soon as possible.
+
+Your Message Summary:
+---------------------
+{message}
+
+If you have any urgent queries, feel free to reply directly to this email or write to us at info@aptcampus.com.
+
+Best regards,
 
 APT Structural Campus
 Professional Structural Engineering & Hiring Solutions

@@ -2,14 +2,16 @@ import os
 from datetime import datetime, timezone
 from flask import Blueprint, render_template, url_for, request, redirect, session, flash, current_app, send_from_directory
 from werkzeug.security import check_password_hash
-from .forms import RegistrationForm, EmployerRequestForm, AdminLoginForm
+from .forms import RegistrationForm, EmployerRequestForm, AdminLoginForm, ContactForm
 from .models import db, Registration, EmployerRequest
 from .auth import admin_required
 from .email_utils import (
     send_admin_registration_email,
     send_applicant_confirmation_email,
     send_admin_employer_request_email,
-    send_employer_confirmation_email
+    send_employer_confirmation_email,
+    send_admin_contact_email,
+    send_contact_confirmation_email
 )
 main = Blueprint("main", __name__)
 
@@ -192,10 +194,33 @@ def hiring():
     )
 
 
-@main.route("/contact")
+@main.route("/contact", methods=["GET", "POST"])
 def contact():
+    form = ContactForm()
+
+    if form.validate_on_submit():
+        name = form.name.data.strip()
+        email = form.email.data.strip()
+        phone = form.phone.data.strip() if form.phone.data else ""
+        subject = form.subject.data
+        message = form.message.data.strip()
+
+        try:
+            send_admin_contact_email(name, email, phone, subject, message)
+        except Exception as e:
+            print("ADMIN CONTACT EMAIL ERROR:", e)
+
+        try:
+            send_contact_confirmation_email(name, email, subject, message)
+        except Exception as e:
+            print("USER CONTACT CONFIRMATION EMAIL ERROR:", e)
+
+        flash("Thank you for reaching out! Your message has been sent successfully. We will get back to you soon.", "success")
+        return redirect(url_for("main.contact"))
+
     return render_template(
         "contact.html",
+        form=form,
         title="Contact"
     )
 

@@ -69,13 +69,13 @@ class Config:
     )
 
     # ==============================
-    # EMAIL CONFIGURATION - ZOHO
+    # EMAIL CONFIGURATION - ZOHO / SMTP
     # ==============================
 
-    MAIL_SERVER = "smtp.zoho.in"
-    MAIL_PORT = 465
-    MAIL_USE_SSL = True
-    MAIL_USE_TLS = False
+    MAIL_SERVER = os.environ.get("MAIL_SERVER", "smtp.zoho.in")
+    MAIL_PORT = int(os.environ.get("MAIL_PORT", 465))
+    MAIL_USE_SSL = os.environ.get("MAIL_USE_SSL", "True").lower() in ("true", "1", "yes")
+    MAIL_USE_TLS = os.environ.get("MAIL_USE_TLS", "False").lower() in ("true", "1", "yes")
 
     MAIL_USERNAME = os.environ.get(
         "MAIL_USERNAME",
@@ -88,7 +88,7 @@ class Config:
 
     MAIL_DEFAULT_SENDER = (
         "APT Structural Campus",
-        "info@aptcampus.com"
+        os.environ.get("MAIL_USERNAME", "info@aptcampus.com")
     )
 
-    MAIL_TIMEOUT = 10
+    MAIL_TIMEOUT = int(os.environ.get("MAIL_TIMEOUT", 10))

@@ -193,3 +193,55 @@ class EmployerRequestForm(FlaskForm):
     submit = SubmitField(
         "Submit Hiring Request"
     )
+
+
+class ContactForm(FlaskForm):
+
+    name = StringField(
+        "Full Name",
+        validators=[
+            DataRequired(message="Full name is required."),
+            Length(min=2, max=120, message="Name must be between 2 and 120 characters.")
+        ]
+    )
+
+    email = StringField(
+        "Email Address",
+        validators=[
+            DataRequired(message="Email address is required."),
+            Email(message="Please enter a valid email address."),
+            Length(max=120)
+        ]
+    )
+
+    phone = StringField(
+        "Phone Number",
+        validators=[
+            Optional(),
+            Length(max=50)
+        ]
+    )
+
+    subject = SelectField(
+        "Enquiry Type",
+        choices=[
+            ("", "Select an option"),
+            ("course", "Course Enquiry"),
+            ("hiring", "Hiring Solutions"),
+            ("career", "Career Opportunity"),
+            ("general", "General Enquiry")
+        ],
+        validators=[
+            DataRequired(message="Please select an enquiry type.")
+        ]
+    )
+
+    message = TextAreaField(
+        "Message",
+        validators=[
+            DataRequired(message="Message is required."),
+            Length(min=10, max=3000, message="Message must be at least 10 characters.")
+        ]
+    )
+
+    submit = SubmitField("Send Enquiry")
