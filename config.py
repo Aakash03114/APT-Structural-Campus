@@ -57,11 +57,11 @@ class Config:
     )
 
     DEFAULT_KEYWORDS = (
+        "apt structural campus, apt campus, structural campus, "
         "Detailing, Estimation, Rebar detailing, Rebar estimation, "
         "detailing training, rebar training, estimation training, "
         "Detailing hiring, Estimation hiring, Civil, Civil job vacancy, "
-        "APT Structural Campus, structural detailing training, "
-        "2D rebar detailing, 3D rebar detailing, concrete estimation"
+        "structural detailing training, 2D rebar detailing, 3D rebar detailing, concrete estimation"
     )
 
     # ==============================
