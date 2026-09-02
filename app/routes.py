@@ -208,6 +208,15 @@ def favicon():
     )
 
 
+@main.route("/google7440c8aafe31bbe1.html")
+def google_verification():
+    return send_from_directory(
+        os.path.join(current_app.root_path, "static"),
+        "google7440c8aafe31bbe1.html",
+        mimetype="text/html"
+    )
+
+
 @main.route("/robots.txt")
 def robots():
     return render_template(
