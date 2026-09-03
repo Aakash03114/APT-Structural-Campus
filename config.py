@@ -69,9 +69,17 @@ class Config:
     )
 
     # ==============================
-    # EMAIL CONFIGURATION - ZOHO / SMTP
+    # EMAIL CONFIGURATION - RESEND API & SMTP
     # ==============================
 
+    # Resend HTTPS API (Primary for Render / Cloud Deployment)
+    RESEND_API_KEY = os.environ.get("RESEND_API_KEY")
+    RESEND_FROM_EMAIL = os.environ.get(
+        "RESEND_FROM_EMAIL",
+        "APT Structural Campus <onboarding@resend.dev>"
+    )
+
+    # SMTP Settings (Localhost / Fallback)
     MAIL_SERVER = os.environ.get("MAIL_SERVER", "smtp.zoho.in")
     MAIL_PORT = int(os.environ.get("MAIL_PORT", 465))
     MAIL_USE_SSL = os.environ.get("MAIL_USE_SSL", "True").lower() in ("true", "1", "yes")

@@ -523,9 +523,13 @@ def admin_logout():
 @main.route("/mail-test")
 def mail_test():
 
+    resend_key = current_app.config.get("RESEND_API_KEY")
     return {
-        "server": current_app.config["MAIL_SERVER"],
-        "port": current_app.config["MAIL_PORT"],
-        "username": current_app.config["MAIL_USERNAME"],
-        "password_loaded": current_app.config["MAIL_PASSWORD"] is not None
+        "email_mode": "Resend API (HTTPS Port 443)" if resend_key else "SMTP (Flask-Mail)",
+        "resend_api_configured": bool(resend_key),
+        "resend_from_email": current_app.config.get("RESEND_FROM_EMAIL"),
+        "smtp_server": current_app.config.get("MAIL_SERVER"),
+        "smtp_port": current_app.config.get("MAIL_PORT"),
+        "smtp_username": current_app.config.get("MAIL_USERNAME"),
+        "smtp_password_loaded": current_app.config.get("MAIL_PASSWORD") is not None
     }
