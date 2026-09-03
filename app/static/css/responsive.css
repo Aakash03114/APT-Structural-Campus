@@ -161,19 +161,28 @@
     }
 
     .navbar-brand {
-        max-width: calc(100% - 60px);
+        max-width: calc(100% - 55px);
     }
 
     .logo-img {
-        max-height: 65px;
+        max-height: 62px;
     }
 
     .logo-title {
-        font-size: 20px;
+        font-size: 18px;
+        margin-left: -24px;
+        white-space: nowrap;
     }
 
     .logo-text small {
-        display: none;
+        display: block;
+        font-size: 8.5px;
+        letter-spacing: 0.8px;
+        margin-top: 2px;
+        margin-left: -24px;
+        white-space: nowrap;
+        color: rgba(1, 20, 40, 0.85);
+        font-weight: 600;
     }
 
     .navbar-toggler {
@@ -397,12 +406,29 @@
 
     /* ---------- NAVBAR ---------- */
 
+    .navbar-brand {
+        max-width: calc(100% - 50px);
+    }
+
     .logo-img {
-        max-height: 55px;
+        max-height: 52px;
     }
 
     .logo-title {
-        font-size: 18px;
+        font-size: 15.5px;
+        margin-left: -18px;
+        white-space: nowrap;
+    }
+
+    .logo-text small {
+        display: block;
+        font-size: 7.2px;
+        letter-spacing: 0.4px;
+        margin-top: 1px;
+        margin-left: -18px;
+        white-space: nowrap;
+        color: rgba(1, 20, 40, 0.85);
+        font-weight: 600;
     }
 
 
@@ -526,6 +552,28 @@
    ========================================================= */
 
 @media (max-width: 400px) {
+
+    /* ---------- NAVBAR ---------- */
+
+    .navbar-brand {
+        max-width: calc(100% - 46px);
+    }
+
+    .logo-img {
+        max-height: 44px;
+    }
+
+    .logo-title {
+        font-size: 13.5px;
+        margin-left: -12px;
+    }
+
+    .logo-text small {
+        display: block;
+        font-size: 6.4px;
+        letter-spacing: 0.1px;
+        margin-left: -12px;
+    }
 
     .hero-title {
         font-size: 31px;
