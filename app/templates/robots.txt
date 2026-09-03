@@ -21,4 +21,4 @@ Disallow: /admin
 Disallow: /admin/
 
 # Sitemap location
-Sitemap: {{ config.DOMAIN }}/sitemap.xml
+Sitemap: https://www.aptcampus.com/sitemap.xml

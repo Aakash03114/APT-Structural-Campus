@@ -1,6 +1,6 @@
 import os
 from datetime import datetime, timezone
-from flask import Blueprint, render_template, url_for, request, redirect, session, flash, current_app, send_from_directory
+from flask import Blueprint, render_template, url_for, request, redirect, session, flash, current_app, send_from_directory, Response
 from werkzeug.security import check_password_hash
 from .forms import RegistrationForm, EmployerRequestForm, AdminLoginForm, ContactForm
 from .models import db, Registration, EmployerRequest
@@ -281,10 +281,8 @@ def google_verification():
 
 @main.route("/robots.txt")
 def robots():
-    return render_template(
-        "robots.txt",
-        mimetype="text/plain"
-    )
+    content = render_template("robots.txt")
+    return Response(content, mimetype="text/plain")
 
 
 @main.route("/sitemap.xml")
@@ -328,12 +326,12 @@ def sitemap():
         }
     ]
 
-    return render_template(
+    content = render_template(
         "sitemap.xml",
         pages=pages,
-        today=datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-        mimetype="application/xml"
+        today=datetime.now(timezone.utc).strftime("%Y-%m-%d")
     )
+    return Response(content, mimetype="application/xml")
 
 
 @main.route("/register", methods=["GET", "POST"])
