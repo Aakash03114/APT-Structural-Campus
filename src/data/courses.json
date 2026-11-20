@@ -1,0 +1,118 @@
+[
+  {
+    "id": "course-2d",
+    "number": "01",
+    "category": "STRUCTURAL DETAILING",
+    "title": "2D Rebar Detailing",
+    "description": "Develop practical skills in reading structural drawings and preparing reinforcement detailing for real-world structural elements.",
+    "duration": "8 Weeks",
+    "level": "Beginner to Intermediate",
+    "mode": "Classroom / Online",
+    "software": "AutoCAD",
+    "image": "images/courses/2d-rebar-detailing.jpeg",
+    "outcomes": [
+      "Interpret structural drawings confidently",
+      "Understand reinforcement terminology",
+      "Identify structural members",
+      "Prepare reinforcement detailing",
+      "Understand bar marks and schedules",
+      "Develop project-based detailing skills"
+    ],
+    "curriculum": [
+      "Structural Drawings",
+      "Structural Terminology",
+      "Structural Members",
+      "Rebar Placement",
+      "Bar Marks",
+      "Structural Elements",
+      "Drawing Preparation",
+      "Project Exercise"
+    ]
+  },
+  {
+    "id": "course-rebar",
+    "number": "02",
+    "category": "QUANTITY ESTIMATION",
+    "title": "Rebar Estimation",
+    "description": "Learn reinforcement quantity take-off, calculations, bar bending schedules and practical checking workflows.",
+    "duration": "6 Weeks",
+    "level": "Beginner to Intermediate",
+    "mode": "Classroom / Online",
+    "software": "Excel / AutoCAD",
+    "image": "images/courses/rebar-estimation.jpeg",
+    "outcomes": [
+      "Read drawings for quantity extraction",
+      "Perform reinforcement quantity take-offs",
+      "Calculate reinforcement quantities",
+      "Prepare BBS",
+      "Check quantities accurately",
+      "Apply estimation skills to projects"
+    ],
+    "curriculum": [
+      "Drawing Reading",
+      "Quantity Take-Off",
+      "Rebar Calculations",
+      "Bar Bending Schedule",
+      "Quantity Checking",
+      "Practical Exercises"
+    ]
+  },
+  {
+    "id": "course-concrete",
+    "number": "03",
+    "category": "CONCRETE ESTIMATION",
+    "title": "Concrete Estimation",
+    "description": "Understand structural drawings and develop practical skills for calculating concrete quantities across major structural elements.",
+    "duration": "5 Weeks",
+    "level": "Beginner to Intermediate",
+    "mode": "Classroom / Online",
+    "software": "Excel / AutoCAD",
+    "image": "images/courses/concrete-estimation.jpeg",
+    "outcomes": [
+      "Interpret structural drawings",
+      "Identify concrete structural members",
+      "Calculate concrete quantities",
+      "Estimate footing quantities",
+      "Estimate column, beam and slab quantities",
+      "Validate estimation results"
+    ],
+    "curriculum": [
+      "Drawing Interpretation",
+      "Structural Members",
+      "Concrete Calculations",
+      "Footings",
+      "Columns",
+      "Beams",
+      "Slabs",
+      "Quantity Validation"
+    ]
+  },
+  {
+    "id": "course-3d",
+    "number": "04",
+    "category": "ADVANCED PROGRAM",
+    "title": "3D Rebar Detailing",
+    "description": "An advanced structural detailing program focused on 3D modelling, digital coordination and modern structural engineering workflows.",
+    "duration": "Coming Soon",
+    "level": "Advanced",
+    "mode": "Coming Soon",
+    "software": "Advanced Structural Software",
+    "image": "images/courses/future-3d-rebar-detailing.jpeg",
+    "outcomes": [
+      "Understand 3D structural workflows",
+      "Develop reinforcement models",
+      "Understand clash detection",
+      "Review structural models",
+      "Work with advanced detailing workflows",
+      "Explore modern structural technologies"
+    ],
+    "curriculum": [
+      "3D Modelling",
+      "Structural Workflow",
+      "Reinforcement Modelling",
+      "Clash Detection",
+      "Model Review",
+      "Advanced Software"
+    ]
+  }
+]

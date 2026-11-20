@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Environment Variables
+.env
+
+# Flask
+instance/
+*.db
+
+# IDE
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+.venv/
+__pycache__/
+.env
+*.pyc
+instance/
+node_modules
+
+# Node.js
+node_modules/
+.env
+.vercel/
+npm-debug.log*

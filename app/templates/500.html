@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}
+Something Went Wrong | APT Structural Campus
+{% endblock %}
+
+{% block meta_description %}
+An unexpected error occurred. Please return to APT Structural Campus and try again.
+{% endblock %}
+
+{% block content %}
+
+<section class="error-page">
+
+    <div class="error-grid"></div>
+
+    <div class="container">
+
+        <div class="error-content"
+             data-aos="fade-up">
+
+            <div class="error-code">
+                500
+            </div>
+
+            <span class="section-eyebrow">
+                TEMPORARY ERROR
+            </span>
+
+            <h1>
+                Something Went
+                <span>Wrong.</span>
+            </h1>
+
+            <p>
+                We encountered an unexpected problem while
+                processing your request. Please try again.
+            </p>
+
+            <div class="error-actions">
+
+                <a href="{{ url_for('main.home') }}"
+                   class="btn-luxury">
+
+                    Return Home
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+                <a href="{{ url_for('main.contact') }}"
+                   class="error-secondary-btn">
+
+                    Contact APT
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

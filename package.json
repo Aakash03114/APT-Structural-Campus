@@ -1,0 +1,31 @@
+{
+  "name": "apt-structural-campus",
+  "version": "1.0.0",
+  "description": "APT Structural Campus - Professional Structural Detailing & Estimation Training",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "db:init": "node scripts/init-db.js",
+    "test": "node --test tests/"
+  },
+  "keywords": [
+    "structural",
+    "campus",
+    "detailing",
+    "estimation"
+  ],
+  "author": "APT Structural Campus",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-session": "^2.1.0",
+    "express": "^4.21.2",
+    "nodemailer": "^6.9.16",
+    "nunjucks": "^3.2.4",
+    "pg": "^8.13.1"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  }
+}

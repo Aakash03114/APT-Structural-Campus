@@ -1,0 +1,123 @@
+<nav class="navbar navbar-expand-lg fixed-top custom-navbar"
+     aria-label="Main navigation">
+
+    <div class="container">
+
+        <!-- Brand -->
+        <a class="navbar-brand d-flex align-items-center"
+           href="{{ url_for('main.home') }}"
+           aria-label="APT Structural Campus home">
+
+            <img
+               src="{{ url_for('static', filename='images/logo/logo-optimized1.png') }}"
+               alt="APT Structural Campus Logo"
+               class="logo-img">
+
+            <div class="logo-text">
+
+                <span class="logo-title">
+                    APT Structural Campus
+                </span>
+
+                <small>
+                    Detailing • Estimation • Career Development
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <!-- Mobile Menu Button -->
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navMenu"
+            aria-controls="navMenu"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+
+            <i class="fas fa-bars" aria-hidden="true"></i>
+
+        </button>
+
+
+        <!-- Navigation -->
+        <div
+            class="collapse navbar-collapse"
+            id="navMenu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link {% if request.endpoint == 'main.home' %}active{% endif %}"
+                        href="{{ url_for('main.home') }}">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link {% if request.endpoint == 'main.about' %}active{% endif %}"
+                        href="{{ url_for('main.about') }}">
+
+                        About
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link {% if request.endpoint == 'main.courses' %}active{% endif %}"
+                        href="{{ url_for('main.courses') }}">
+
+                        Courses
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link {% if request.endpoint == 'main.hiring' %}active{% endif %}"
+                        href="{{ url_for('main.hiring') }}">
+
+                        Hiring
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link {% if request.endpoint == 'main.contact' %}active{% endif %}"
+                        href="{{ url_for('main.contact') }}">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}
+Structural Detailing & Estimation Courses | APT Structural Campus
+{% endblock %}
+
+{% block meta_description %}
+Comprehensive detailing training, rebar training, and estimation training courses. Learn Rebar detailing, Rebar estimation, and concrete estimation to advance your Civil career and fill Civil job vacancy demands.
+{% endblock %}
+
+{% block meta_keywords %}
+apt structural campus, apt campus, structural campus, detailing training, rebar training, estimation training, Rebar detailing, Rebar estimation, Detailing, Estimation, Civil, Civil job vacancy, 2D rebar detailing, 3D rebar detailing, concrete estimation
+{% endblock %}
+
+{% block content %}
+
+{% include "components/courses_hero.html" %}
+
+{% include "components/course_overview.html" %}
+
+<section class="course-details-wrapper">
+
+    {% for course in courses %}
+
+        {% include "components/course_detail.html" %}
+
+    {% endfor %}
+
+</section>
+
+{% include "components/courses_cta.html" %}
+
+{% endblock %}
