@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
+    "build": "echo Build completed",
     "db:init": "node scripts/init-db.js",
     "test": "node --test tests/"
   },
