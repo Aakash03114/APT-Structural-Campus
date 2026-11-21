@@ -11,6 +11,35 @@ Comprehensive detailing training, rebar training, and estimation training course
 apt structural campus, apt campus, structural campus, detailing training, rebar training, estimation training, Rebar detailing, Rebar estimation, Detailing, Estimation, Civil, Civil job vacancy, 2D rebar detailing, 3D rebar detailing, concrete estimation
 {% endblock %}
 
+{% block extra_schema %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {% for course in courses %}
+        {
+            "@type": "Course",
+            "name": "{{ course.title }}",
+            "description": "{{ course.description }}",
+            "provider": {
+                "@type": "EducationalOrganization",
+                "name": "APT Structural Campus",
+                "sameAs": "https://www.aptcampus.com"
+            },
+            "educationalCredentialAwarded": "Course Completion Certificate",
+            "courseMode": "{{ course.mode }}",
+            "hasCourseInstance": {
+                "@type": "CourseInstance",
+                "courseMode": "{{ course.mode }}",
+                "courseWorkload": "{{ course.duration }}"
+            }
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 
 {% include "components/courses_hero.html" %}
