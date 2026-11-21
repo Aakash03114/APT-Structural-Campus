@@ -41,13 +41,7 @@ const config = {
 
   // SEO
   DEFAULT_DESCRIPTION:
-    'The campus is designed to provide practical and career-oriented ' +
-    'education in rebar detailing, rebar estimation and concrete estimation, ' +
-    'while creating a pathway toward advanced 3D structural detailing. ' +
-    'Our approach is centered on developing skills that can be applied to ' +
-    'real engineering workflows. Rather than focusing only on theoretical ' +
-    'knowledge, learners are introduced to drawings, detailing practices, ' +
-    'estimation processes and project-oriented exercises.',
+    'Practical training in 2D/3D rebar detailing, rebar estimation, and concrete estimation for civil engineers and professionals at APT Structural Campus.',
 
   DEFAULT_KEYWORDS:
     'apt structural campus, apt campus, structural campus, ' +
